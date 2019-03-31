@@ -33,9 +33,7 @@ public class Main {
         String str = scn.next();
         strChar = str.toCharArray();
         if(str == null || str.length() != x){
-            System.out.println("input kembali kata acak");
-            strChar = checkKataAcak(strChar,scn, x);
-            return strChar;
+            System.out.println("jumlah huruf tidak sesuai");
         }
         return strChar;
     }
