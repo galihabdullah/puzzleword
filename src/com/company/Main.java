@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        File file = new File("/home/gwalieh/IdeaProjects/untitled2/src/com/company/input.txt");
+        File file = new File(args[0]);
         try {
             Scanner scn = new Scanner(file);
             int totalWords = scn.nextInt();

@@ -110,7 +110,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554035309603" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554035396586" />
     <property name="last_opened_file_path" value="$USER_HOME$/uploadcloudinary" />
   </component>
   <component name="RunDashboard">
@@ -129,7 +129,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
       <module name="untitled2" />
-      <option name="PROGRAM_PARAMETERS" value="input.txt" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/src/com/company/input.txt" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method v="2">
