@@ -1,5 +1,7 @@
 package com.company;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
@@ -8,30 +10,27 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scn = new Scanner(System.in);
-        System.out.println("input total");
-        int totalWorlds = scn.nextInt();
-        int[] row = new int[totalWorlds];
-        int[] column = new int[totalWorlds];
-        for(int i = 0; i < totalWorlds; i++){
-            System.out.println("input row");
-            row[i] = scn.nextInt();
-            System.out.println("input column");
-            column[i] = scn.nextInt();
-            char[][] kataAcak = new char[row[i]][column[i]];
-            for(int j = 0; j < kataAcak.length; j++){
-                System.out.println("input kata acak dengan panjang huruf : " + column[i]);
-                kataAcak[j] = checkKataAcak(kataAcak[j], scn, column[i]);
-
+        File file = new File("/home/gwalieh/IdeaProjects/untitled2/src/com/company/input.txt");
+        try {
+            Scanner scn = new Scanner(file);
+            int totalWords = scn.nextInt();
+            int[] row = new int[totalWords];
+            int[] col = new int[totalWords];
+            for(int i = 0; i < totalWords; i++){
+                row[i] = scn.nextInt();
+                col[i] = scn.nextInt();
+                char[][] kataAcak = new char[row[i]][col[i]];
+                for(int j = 0; j < kataAcak.length; j++){
+                    kataAcak[j] = checkKataAcak(kataAcak[j], scn, col[i]);
+                }
+                String kataDicari = scn.next();
+                int kataDitemukan = find(kataDicari, kataAcak);
+                System.out.println("case "+ (i+1) + " : " + kataDitemukan);
             }
-            System.out.println("input kata yang dicari");
-            String kataDicari = scn.next();
-            System.out.println("kata acak : "+ Arrays.deepToString(kataAcak));
-            int kataDitemukan = find(kataDicari, kataAcak);
-            System.out.println("case "+ (i + 1) + " :" + kataDitemukan);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.out.println(args[0]);
         }
-
-        scn.close();
     }
 
     static char[] checkKataAcak(char[] strChar, Scanner scn, int x){
@@ -61,6 +60,7 @@ public class Main {
     static int checkMacth(String kataDicari, char[][] kataAcak, int row, int col){
         int kataDitemukan = 0;
         int len = kataDicari.length();
+
         if((col + len) <= kataAcak[0].length){
             int wordPos = 0;
             for(int i = col; i <= (col + len) - 1; i++){
@@ -73,7 +73,7 @@ public class Main {
                 wordPos++;
             }
         }
-        if((col - len) + 1 >= -1){
+        if((col - len) + 1 > -1){
             int wordPos = 0;
             for(int i = col; i >= (col - len) + 1; i--){
                 if(kataDicari.charAt(wordPos) != kataAcak[row][i]){
@@ -99,7 +99,7 @@ public class Main {
             }
         }
 
-        if((row + len) <= kataAcak[0].length){
+        if((row + len) <= kataAcak.length){
             int wordPos = 0;
             for(int i = row; i <= (row + len) - 1; i++){
                 if(kataDicari.charAt(wordPos) != kataAcak[i][col]){
@@ -142,7 +142,7 @@ public class Main {
             }
         }
 
-        if((row + len) <= kataAcak[0].length && (col + len) <= kataAcak[0].length){
+        if((row + len) <= kataAcak.length && (col + len) <= kataAcak[0].length){
             int wordPos = 0;
             int j = col;
             for(int i = row; i <= (row + len) -1; i++){
@@ -157,7 +157,7 @@ public class Main {
             }
         }
 
-        if((row + len) <= kataAcak[0].length && (col - len) >= -1){
+        if((row + len) <= kataAcak.length && (col - len) >= -1){
             int wordPos = 0;
             int j = col;
             for(int i = row; i <= (row + len) -1; i++){
