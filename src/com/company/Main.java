@@ -2,9 +2,6 @@ package com.company;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -25,7 +22,7 @@ public class Main {
                 }
                 String kataDicari = scn.next();
                 int kataDitemukan = find(kataDicari, kataAcak);
-                System.out.println("case "+ (i+1) + " : " + kataDitemukan);
+                System.out.println("Case "+ (i+1) + ": " + kataDitemukan);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
