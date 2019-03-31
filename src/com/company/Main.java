@@ -26,7 +26,6 @@ public class Main {
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            System.out.println(args[0]);
         }
     }
 
